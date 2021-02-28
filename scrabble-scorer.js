@@ -41,23 +41,95 @@ function initialPrompt() {
    return wordToScore;
 };
 
-let simpleScore;
 
-let vowelBonusScore;
+function simpleScore(word) {
+  	word = word.toUpperCase();
+    let points = 0;
+    for(i=0; i<word.length; i++){
+      points=points+1;
+    
+    }
+    //console.log(points);
+    return points;
+}
+//let simpleScore = " ";
+
+function vowelBonusScore(word) {
+  	word = word.toUpperCase();
+    let points = 0;
+    for(i=0; i<word.length; i++){
+      if (word.slice(i, i+1)==='A' || word.slice(i, i+1)==='E'|| word.slice(i, i+1)==='I' || word.slice(i, i+1)==='O' || word.slice(i, i+1)==='U'){
+        points = points + 3;
+      }
+      else {
+        points = points + 1;
+      }
+    }
+    //console.log(points);
+    return points;
+}
+
+
+//let vowelBonusScore;
 
 let scrabbleScore;
 
-const scoringAlgorithms = [];
+let simpleScores = {
+  name: "Simple:",
+  description:"One point per character",
+  scorerFunction: simpleScore
+  
+};
 
-function scorerPrompt() {}
+let bonusVowels = {
+  name: "Vowel Bonus:",
+  description:"Vowels are worth 3 points",
+  scorerFunction: vowelBonusScore
 
-function transform() {};
+};
+
+let scrabble = {
+  name: "Scrabble:",
+  description:"Uses scrabble point system",
+  scorerFunction:oldScrabbleScorer
+
+};
+
+const scoringAlgorithms = [simpleScores, bonusVowels,scrabble];
+
+function scorerPrompt(arr) { 
+console.log("Which scoring algorithm would you like to use?");
+  for(i=0; i<arr.length; i++){ 
+console.log(`${i} - ${arr[i].name} : ${arr[i].description}`);
+  }
+
+  let scorerPrompt = input.question("Enter 0, 1, or 2:");
+
+  return scorerPrompt;
+}
+
+
+
+
+function transform() {
+
+ 
+  return;
+}
+
+
 
 let newPointStructure;
 
 function runProgram() {
    let userWord = initialPrompt();
-   oldScrabbleScorer(userWord);
+   let prompt = scorerPrompt(scoringAlgorithms);
+  prompt = Number(prompt);
+  console.log(`Score for '${userWord}': ${scoringAlgorithms[prompt].scorerFunction(userWord)}`);
+
+   //oldScrabbleScorer(userWord);
+   //simpleScore(userWord);
+   //vowelBonusScore(userWord);
    
   
    
