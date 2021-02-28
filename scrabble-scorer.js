@@ -72,7 +72,7 @@ function vowelBonusScore(word) {
 
 //let vowelBonusScore;
 
-//let scrabbleScore;
+let scrabbleScore;
 
 /*let simpleScores = ({
   name: 'Simple:', 
@@ -108,9 +108,9 @@ const scoringAlgorithms = [{
   scorerFunction:oldScrabbleScorer}];
 
 function scorerPrompt(arr) { 
-console.log("Which scoring algorithm would you like to use?");
+  console.log("Which scoring algorithm would you like to use?");
   for(i=0; i<arr.length; i++){ 
-console.log(`${i} - ${arr[i].name} : ${arr[i].description}`);
+    console.log(`${i} - ${arr[i].name} : ${arr[i].description}`);
   }
 
   let scorerPrompt = input.question("Enter 0, 1, or 2:");
