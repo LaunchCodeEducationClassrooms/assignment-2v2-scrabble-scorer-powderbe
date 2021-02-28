@@ -72,7 +72,7 @@ function vowelBonusScore(word) {
 
 //let vowelBonusScore;
 
-let scrabbleScore;
+//let scrabbleScore;
 
 /*let simpleScores = ({
   name: 'Simple:', 
