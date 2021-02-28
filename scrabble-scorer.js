@@ -37,7 +37,7 @@ function initialPrompt() {
    console.log("Let's play some scrabble! ");
 
    let wordToScore = input.question("Enter a word to score:");
-    oldScrabbleScorer(wordToScore);
+
    return wordToScore;
 };
 
@@ -56,7 +56,8 @@ function transform() {};
 let newPointStructure;
 
 function runProgram() {
-   initialPrompt();
+   let userWord = initialPrompt();
+   oldScrabbleScorer(userWord);
    
   
    
