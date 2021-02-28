@@ -13,7 +13,7 @@ const oldPointStructure = {
 };
 
 function oldScrabbleScorer(word) {
-	word = word.toLowerCase();
+	word = word.toUpperCase();
 	let letterPoints = "";
  
 	for (let i = 0; i < word.length; i++) {
@@ -84,23 +84,24 @@ function scrabbleScore(word){
   return points;
 }
 
+
 let simpleScores = {
   name: 'Simple:', 
-  description:'One point per character',scorerFunction: simpleScore
+  description:'One point per character',scoringFunction: simpleScore
   
 };
 
 let bonusVowels = {
   name: "Vowel Bonus:",
   description:"Vowels are worth 3 points",
-  scorerFunction: vowelBonusScore
+  scoringFunction: vowelBonusScore
 
 };
 
 let scrabble = {
   name: "Scrabble:",
   description:"Uses scrabble point system",
-  scorerFunction:scrabbleScore
+  scoringFunction:scrabbleScore
 
 };
 
@@ -149,7 +150,7 @@ function runProgram() {
    let userWord = initialPrompt();
    let prompt = scorerPrompt(scoringAlgorithms);
   prompt = Number(prompt);
-  console.log(`Score for '${userWord}': ${scoringAlgorithms[prompt].scorerFunction(userWord)}`);
+  console.log(`Score for '${userWord}': ${scoringAlgorithms[prompt].scoringFunction(userWord)}`);
 
    //console.log(transform(oldPointStructure));
    //oldScrabbleScorer(userWord);
