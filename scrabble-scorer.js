@@ -74,12 +74,11 @@ function vowelBonusScore(word) {
 
 let scrabbleScore;
 
-let simpleScores = {
-  name: "Simple:",
-  description:"One point per character",
-  scorerFunction: simpleScore
+/*let simpleScores = ({
+  name: 'Simple:', 
+  description:'One point per character',scorerFunction: simpleScore
   
-};
+});
 
 let bonusVowels = {
   name: "Vowel Bonus:",
@@ -95,7 +94,18 @@ let scrabble = {
 
 };
 
-const scoringAlgorithms = [simpleScores, bonusVowels,scrabble];
+const scoringAlgorithms = [simpleScores, bonusVowels,scrabble];*/
+
+const scoringAlgorithms = [{
+  name: 'Simple:', 
+  description:'One point per character',scorerFunction: simpleScore}, 
+  {name: "Vowel Bonus:",
+  description:"Vowels are worth 3 points",
+  scorerFunction: vowelBonusScore
+  },
+  {name: "Scrabble:",
+  description:"Uses scrabble point system",
+  scorerFunction:oldScrabbleScorer}];
 
 function scorerPrompt(arr) { 
 console.log("Which scoring algorithm would you like to use?");
