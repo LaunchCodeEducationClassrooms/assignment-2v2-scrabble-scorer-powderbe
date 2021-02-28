@@ -72,7 +72,17 @@ function vowelBonusScore(word) {
 
 //let vowelBonusScore;
 
-let scrabbleScore;
+//let scrabbleScore;
+function scrabbleScore(word){
+  word = word.toUpperCase();
+
+  let points = 0;
+
+  for (let i=0; i<word.length; i++){
+    points = points + newPointStructure[word.slice(i,i+1)]
+  }
+  return points;
+}
 
 let simpleScores = {
   name: 'Simple:', 
@@ -90,7 +100,7 @@ let bonusVowels = {
 let scrabble = {
   name: "Scrabble:",
   description:"Uses scrabble point system",
-  scorerFunction:oldScrabbleScorer
+  scorerFunction:scrabbleScore
 
 };
 
@@ -121,15 +131,19 @@ function scorerPrompt(arr) {
 
 
 
-function transform() {
+function transform(object) {
 
- 
-  return;
+  let newObject = {};
+  for (var item in object){
+    for (i=0; i<object[item].length; i++){
+        newObject[(object[item][i])] = Number(item);
+    }
+  }
+  return newObject;
 }
 
 
-
-let newPointStructure;
+let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
    let userWord = initialPrompt();
@@ -137,6 +151,7 @@ function runProgram() {
   prompt = Number(prompt);
   console.log(`Score for '${userWord}': ${scoringAlgorithms[prompt].scorerFunction(userWord)}`);
 
+   //console.log(transform(oldPointStructure));
    //oldScrabbleScorer(userWord);
    //simpleScore(userWord);
    //vowelBonusScore(userWord);
