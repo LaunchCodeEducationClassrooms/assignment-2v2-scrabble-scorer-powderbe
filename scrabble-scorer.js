@@ -43,7 +43,7 @@ function initialPrompt() {
 
 
 function simpleScore(word) {
-  	word = word.toUpperCase();
+  	word = word.toLowerCase();
     let points = 0;
     for(i=0; i<word.length; i++){
       points=points+1;
@@ -55,7 +55,7 @@ function simpleScore(word) {
 //let simpleScore = " ";
 
 function vowelBonusScore(word) {
-  	word = word.toUpperCase();
+  	word = word.toLowerCase();
     let points = 0;
     for(i=0; i<word.length; i++){
       if (word.slice(i, i+1)==='A' || word.slice(i, i+1)==='E'|| word.slice(i, i+1)==='I' || word.slice(i, i+1)==='O' || word.slice(i, i+1)==='U'){
@@ -74,7 +74,7 @@ function vowelBonusScore(word) {
 
 //let scrabbleScore;
 function scrabbleScore(word){
-  word = word.toUpperCase();
+  word = word.toLowerCase();
 
   let points = 0;
 
