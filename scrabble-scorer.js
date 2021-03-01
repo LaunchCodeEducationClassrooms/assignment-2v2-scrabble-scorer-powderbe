@@ -43,7 +43,7 @@ function initialPrompt() {
 
 
 function simpleScore(word) {
-  	word = word.toLowerCase();
+  	word = word.toUpperCase();
     let points = 0;
     for(i=0; i<word.length; i++){
       points=points+1;
@@ -137,7 +137,7 @@ function transform(object) {
   let newObject = {};
   for (var item in object){
     for (i=0; i<object[item].length; i++){
-        newObject[(object[item][i])] = Number(item);
+        newObject[(object[item][i].toLowerCase())] = Number(item);
     }
   }
   return newObject;
